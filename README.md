@@ -18,4 +18,98 @@ git commit -m "Removed files from repository"
 
 ```
 
+# Babel compiling & npm publishing
 
+## JS
+
+**`example you have this folder u want to compile:`**
+
+```shell
+MyModal
+├── src
+│   └── Modal.js
+├── package.json
+└── ...
+```
+
+First install with the command below
+
+```shell
+npm i @babel/cli @babel/core @babel/preset-env @babel/preset-react
+```
+
+### In the `package.json` add the following
+
+```json
+"devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.18.6",
+  },
+"scripts": {
+"build": "babel src --out-dir lib"
+},
+"babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },
+
+```
+
+## TS
+
+**`example you have this folder u want to compile:`**
+
+```shell
+MyModal
+├── src
+│   └── Modal.tsx
+├── package.json
+└── ...
+```
+
+First install with the command below
+
+```shell
+npm i @babel/cli @babel/core @babel/preset-env @babel/preset-react @babel/preset-typescript
+```
+
+### In the `package.json` add the following
+
+```json
+"devDependencies": {
+    "@babel/cli": "^7.21.5",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.5"
+  },
+"scripts": {
+"build": "babel src --out-dir lib --extensions .ts,.tsx"
+},
+"babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },
+
+```
+
+## After compiling run:
+
+```shell
+npm run build  #u will get a lib folder with all the compiled files
+```
+
+## Then to publish your package:
+
+```shell
+npm login #first authenticate yourself in the npm registry then:
+npm publish
+```
