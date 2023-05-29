@@ -113,3 +113,11 @@ npm run build  #u will get a lib folder with all the compiled files
 npm login #first authenticate yourself in the npm registry then:
 npm publish
 ```
+
+## Reloading Vscode
+
+in vscode:
+
+- `Ctrl+Shift+P`
+- type `Reload`
+- click `Developer: Reload Window`
