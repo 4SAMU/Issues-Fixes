@@ -121,3 +121,12 @@ in vscode:
 - `Ctrl+Shift+P`
 - type `Reload`
 - click `Developer: Reload Window`
+
+## Media Queries Breakpoints
+### By default, Material-UI follows a predefined set of breakpoints with the following pixel values:
+
+   - xs: Extra small screens (0px and up)
+   - sm: Small screens (600px and up)
+   - md: Medium screens (960px and up)
+    -lg: Large screens (1280px and up)
+   - xl: Extra large screens (1920px and up)
