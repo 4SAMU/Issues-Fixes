@@ -130,3 +130,55 @@ in vscode:
    - md: Medium screens (960px and up)
     -lg: Large screens (1280px and up)
    - xl: Extra large screens (1920px and up)
+
+## How to use Typeform in Next.js
+```js
+import React, { useEffect } from "react";
+import { PopupButton } from "@typeform/embed-react";
+import { CenterItems, HireUs } from "@/styles/PortfolioStyles";
+
+const Typeform = (props: any) => {
+  const { IsGetStarted } = props;
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//embed.typeform.com/next/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <PopupButton
+      id="Q2Y4TCRB"
+      style={{
+        position: "relative",
+        background: "none",
+        border: "none",
+        top: IsGetStarted ? "21px" : "44px",
+        ...(!IsGetStarted && {
+          ...CenterItems,
+        }),
+      }}
+    >
+      <HireUs
+        variant="contained"
+        sx={{
+          ...(IsGetStarted && {
+            borderRadius: "0 !important",
+            width: " 204px",
+            left: "0",
+            transform: "none",
+          }),
+        }}
+      >
+        Hire Us!
+      </HireUs>
+    </PopupButton>
+  );
+};
+
+export default Typeform;
+
+```
