@@ -179,6 +179,20 @@ const Typeform = (props: any) => {
   );
 };
 
+
+## Countries flag by code
+
+`e.g`, KENYA's code is KE
+```js
+const option={
+code:"KE"
+}
+cosnt KenyanFlag=https://flagcdn.com/w20/${option.code.toLowerCase()}.png
+<img src='KenyanFlag' alt="KE"/>
+```
+
+
+
 export default Typeform;
 
 ```
