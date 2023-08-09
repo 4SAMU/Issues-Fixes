@@ -195,6 +195,7 @@ code:"KE"
 cosnt KenyanFlag=https://flagcdn.com/w20/${option.code.toLowerCase()}.png
 <img src='KenyanFlag' alt="KE"/>
 ```
+`Output`
 <img src="https://flagcdn.com/w20/ke.png" alt="KE"/>
 
 
