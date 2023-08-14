@@ -122,3 +122,149 @@ in vscode:
 - type `Reload`
 - click `Developer: Reload Window`
 
+## Media Queries Breakpoints
+
+### By default, Material-UI follows a predefined set of breakpoints with the following pixel values:
+
+- xs: Extra small screens (0px and up)
+- sm: Small screens (600px and up)
+- md: Medium screens (960px and up)
+  -lg: Large screens (1280px and up)
+- xl: Extra large screens (1920px and up)
+
+## How to use Typeform in Next.js
+
+```js
+import React, { useEffect } from "react";
+import { PopupButton } from "@typeform/embed-react";
+import { CenterItems, HireUs } from "@/styles/PortfolioStyles";
+
+const Typeform = (props: any) => {
+  const { IsGetStarted } = props;
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//embed.typeform.com/next/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <PopupButton
+      id=" " // typeform id
+      style={{
+        position: "relative",
+        background: "none",
+        border: "none",
+        top: IsGetStarted ? "21px" : "44px",
+        ...(!IsGetStarted && {
+          ...CenterItems,
+        }),
+      }}
+    >
+      <HireUs
+        variant="contained"
+        sx={{
+          ...(IsGetStarted && {
+            borderRadius: "0 !important",
+            width: " 204px",
+            left: "0",
+            transform: "none",
+          }),
+        }}
+      >
+        Hire Us!
+      </HireUs>
+    </PopupButton>
+  );
+};
+
+export default Typeform;
+```
+
+## Countries flag by code
+
+`e.g`, KENYA's code is KE
+
+```js
+const option={
+code:"KE"
+}
+cosnt KenyanFlag=https://flagcdn.com/w20/${option.code.toLowerCase()}.png
+<img src='KenyanFlag' alt="KE"/>
+```
+
+`Output`
+<img src="https://flagcdn.com/w20/ke.png" alt="KE"/>
+
+# High Order Component Layout for Next.js
+
+### Create a folder called components and add the following files
+
+### `Navbar.tsx`
+
+```ts
+//LandingLayout.tsx
+import React from "react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+
+const LandingLayout = ({ children }) => {
+  return (
+    <Navbar/>
+      <main>{children}</main>
+    <Footer/>
+  );
+};
+```
+
+### `DashboardNavbarLayout.tsx`
+
+```ts
+//DashboardNavbarLayout.tsx
+import React from "react";
+import TopBar from "./TopBar";
+import SideBar from "./SideBar";
+
+const DashboardNavbarLayout = ({ children }) => {
+  return (
+    <>
+      <TopBar />
+      <SideBar />
+      {children}
+    </>
+  );
+};
+```
+
+
+### `withLayout.tsx` the HOC Layout
+```ts
+// components/withLayout.js
+import React from "react";
+import LandingLayout from "./LandingLayout";
+import DashboardNavbarLayout from "./DashboardNavbarLayout";
+
+const withLayout = (PageComponent, layoutType) => {
+  switch (layoutType) {
+    case "landing":
+      return (props) => (
+        <LandingLayout>
+          <PageComponent {...props} />
+        </LandingLayout>
+      );
+    case "dashboard":
+      return (props) => (
+        <DashboardNavbarLayout>
+          <PageComponent {...props} />
+        </DashboardNavbarLayout>
+      );
+    default:
+      return PageComponent;
+  }
+};
+
+export default withLayout;
+```
