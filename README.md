@@ -199,6 +199,9 @@ cosnt KenyanFlag=https://flagcdn.com/w20/${option.code.toLowerCase()}.png
 `Output`
 <img src="https://flagcdn.com/w20/ke.png" alt="KE"/>
 
+
+
+
 # High Order Component Layout for Next.js
 
 ### Create a folder called components and add the following files
