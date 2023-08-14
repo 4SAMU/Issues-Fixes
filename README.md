@@ -239,8 +239,8 @@ const DashboardNavbarLayout = ({ children }) => {
 };
 ```
 
-
 ### `withLayout.tsx` the HOC Layout
+
 ```ts
 // components/withLayout.js
 import React from "react";
@@ -267,4 +267,38 @@ const withLayout = (PageComponent, layoutType) => {
 };
 
 export default withLayout;
+```
+
+### usage example
+
+Now, you can use the `withLayout` HOC to wrap your pages with the appropriate layout:
+
+```ts
+// pages/index.js
+import React from "react";
+import withLayout from "../components/withLayout";
+
+const HomePage = () => (
+  <>
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the content of the home page.</p>
+  </>
+);
+
+export default withLayout(HomePage, "landing");
+```
+
+```ts
+// pages/dashboard.js
+import React from "react";
+import withLayout from "../components/withLayout";
+
+const DashboardPage = () => (
+  <>
+    <h1>User Dashboard</h1>
+    <p>This is the user dashboard content.</p>
+  </>
+);
+
+export default withLayout(DashboardPage, "dashboard");
 ```
