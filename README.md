@@ -192,7 +192,7 @@ export default Typeform;
 const option={
 code:"KE"
 }
-cosnt KenyanFlag=https://flagcdn.com/w20/${option.code.toLowerCase()}.png
+const KenyanFlag=https://flagcdn.com/w20/${option.code.toLowerCase()}.png
 <img src='KenyanFlag' alt="KE"/>
 ```
 
